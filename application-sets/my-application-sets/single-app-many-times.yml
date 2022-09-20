@@ -10,7 +10,7 @@ spec:
       - namespace: team-a
       - namespace: team-b
       - namespace: team-c
-      - namespace: staging
+      - namespace: my-application-sets
   template:      
     metadata:
       name: '{{namespace}}-billing'
