@@ -4,27 +4,18 @@ metadata:
   name: cluster-git
 spec:
   generators:
-    # matrix 'parent' generator
     - matrix:
         generators:
+          - clusters: {}
           # git generator, 'child' #1
           - git:
               repoURL: https://github.com/codefresh-contrib/gitops-cert-level-2-examples.git
               revision: HEAD
               directories:
                 - path: application-sets/example-apps/*
-          - clusters: {}
-          - list:
-              elements:
-                - values: 
-                    suffix: '1'
-                - values:
-                    suffix: '2'
-                - values: 
-                    suffix: '3'
   template:
     metadata:
-      name: '{{path.basename}}-{{name}}-{{values.suffix}}'
+      name: '{{path.basename}}-{{name}}-{{server}}'
     spec:
       project: 'default'
       source:
@@ -37,6 +28,6 @@ spec:
       syncPolicy:
         syncOptions:
           - CreateNamespace=true
-        automated: 
-          prune: true 
+        automated:
+          prune: true
           selfHeal: true
