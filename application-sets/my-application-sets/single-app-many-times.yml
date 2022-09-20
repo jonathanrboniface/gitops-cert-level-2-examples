@@ -13,7 +13,7 @@ spec:
       - namespace: my-application-sets
   template:      
     metadata:
-      name: '{{namespace}}-billing'
+      name: '{{namespace}}'
     spec:
       # The project the application belongs to.
       project: default
