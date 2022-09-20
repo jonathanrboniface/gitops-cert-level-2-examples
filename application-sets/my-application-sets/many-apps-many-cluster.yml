@@ -14,9 +14,17 @@ spec:
               directories:
                 - path: application-sets/example-apps/*
           - clusters: {}
+          - list:
+              elements:
+                - values: 
+                    suffix: '1'
+                - values:
+                    suffix: '2'
+                - values: 
+                    suffix: '3'
   template:
     metadata:
-      name: '{{path.basename}}-{{name}}'
+      name: '{{path.basename}}-{{name}}-{{values.suffix}}'
     spec:
       project: 'default'
       source:
