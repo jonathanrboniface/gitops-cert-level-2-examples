@@ -13,7 +13,7 @@ spec:
     server: https://kubernetes.default.svc
     namespace: staging
   syncPolicy:
-    syncOption:
+    syncOptions:
       - CreateNamespace=true
     automated:
       prune: true
